@@ -1,0 +1,42 @@
+#postbody{
+	width:70rem;
+}
+
+#postimage{
+	width:30rem;
+	margin: 20px auto;
+	border: 2px solid #ae9bbd;
+	box-shadow: 4px 2px 2px #ae9bbd;
+}
+
+#editdeletebutton{
+	width:50px;
+	margin:10px;
+	display: flex;
+}
+
+#deletebutton{
+	margin-left: 10px;
+}
+
+.add{
+	margin: 30px;
+}
+
+#userComments{
+	width: 500px;
+	padding-left: 30px;
+}	
+
+.comments{
+	margin-left: 30px; 
+}
+
+.commentLists{
+	box-shadow: 2px 1px 1px #8aa9b5;
+}
+
+
+
+
+

@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+<div class="container">
+	<div id="postbody" class="card">
+		<div class="card-header text-center">
+			<h3><%=post.name%></h3>
+		</div>
+		<div class="card-body">
+			<div id="postimage" class="card-title">
+				<img src="<%=post.image%>" class="card-img-top">
+			</div>
+      <p><em>Submitted By: <%=post.author.name%></em></p> 
+			<p class="card-text"> <%-post.description%> </p>
+		</div>
+    <% if(currentUser && post.author._id.equals(currentUser._id)){ %>
+        <div id="editdeletebutton">
+          <a id="editbutton" href="/api/aboutposts/<%=post.id%>/edit" class="btn btn-warning btn-sm">Edit</a>
+          <form id="deletebutton" action="/api/aboutposts/<%=post.id%>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger btn-sm transition-3d-hover">Delete</button>    
+          </form>
+        </div>
+      <% } %> 
+	</div>
+  <div class="add">
+    <button class="btn btn-lg btn-primary"> Add Comments </button>
+  </div>
+  <!-- Form -->
+  <form action="/api/aboutposts/<%=post.id%>?_method=PUT" method="POST" id="userComments" class="js-validate">
+    <div class="js-form-message form-group mb-3">
+      <input type="text" class="form-control" name="author" value="<%=currentUser?currentUser.name : ""%>" <%=currentUser?"readonly":""%> id="inputName" placeholder="Name" aria-label="Name" required
+             data-msg="Please enter your name."
+             data-error-class="u-has-error"
+             data-success-class="u-has-success">
+    </div>
+    <div class="js-form-message form-group mb-3">
+      <textarea class="form-control" rows="7" name="text" placeholder="Comment" required
+                data-msg="Please enter your message."
+                data-error-class="u-has-error"
+                data-success-class="u-has-success"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary btn-wide transition-3d-hover">Post</button>
+    </div>
+  </form>
+  <br/>
+  <br/>
+  <div class="comments">
+    <h1>COMMENTS</h1>
+    <hr>
+    <%post.comments.forEach((comment)=>{%>
+      <div class="commentLists">
+        <h5><%=comment.author%></h5>
+        <p><%=comment.text%></p>
+      </div>
+      <br/>
+      <br/>  
+    <%});%>
+  </div>
+</div>
+
+<% include ../partials/footer %>

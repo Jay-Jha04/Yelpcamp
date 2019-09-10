@@ -1,0 +1,36 @@
+<% include partials/header %>
+	<div id="signup"  class="container">
+		<h1>New Yelpcamp</h1>
+		<!-- Form -->
+	    <form action="/api/campgrounds"  method="POST" class="js-validate">
+	      <div class="js-form-message form-group mb-3">
+	        <input type="text" class="form-control" value ="<%=currentUser.name%>" readonly>
+	      </div>
+	      <div class="js-form-message form-group mb-3">
+	        <input type="text" class="form-control" name="name" id="inputName" placeholder="Name" aria-label="Name" required
+	               data-msg="Please enter your name."
+	               data-error-class="u-has-error"
+	               data-success-class="u-has-success">
+	      </div>
+
+
+	      <div class="js-form-message form-group mb-3">
+	        <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+	      </div>
+
+	      <div class="js-form-message form-group mb-3">
+        	<textarea class="form-control" rows="7" name="description" placeholder="About camp !" required
+                data-msg="Please enter your message."
+                data-error-class="u-has-error"
+                data-success-class="u-has-success"></textarea>
+      	  </div>
+
+	      <div class="d-flex justify-content-center">
+	        <button type="submit" class="btn btn-primary btn-wide transition-3d-hover">Add</button>
+	      </div>
+	    </form>
+	</div>
+
+
+<% include partials/footer %>
+

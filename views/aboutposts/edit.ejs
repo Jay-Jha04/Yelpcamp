@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+	<div id="signup"  class="container">
+		<h1>Edit</h1>
+		<!-- Form -->
+	    <form action="/api/aboutposts/<%=campground.id%>/edit?_method=PUT"  method="POST" class="js-validate">
+	      <div class="js-form-message form-group mb-3">
+	        <input type="text" class="form-control" name="name" value="<%=campground.name%>">
+	      </div>
+	      <div class="js-form-message form-group mb-3">
+	        <input type="text" class="form-control" name="image" value="<%=campground.image%>">
+	      </div>
+
+	      <div class="js-form-message form-group mb-3">
+        	<textarea class="form-control" rows="7" name="description"><%=campground.description%></textarea>
+      	  </div>
+
+	      <div class="d-flex justify-content-center">
+	        <button type="submit" class="btn btn-primary btn-wide transition-3d-hover">Update</button>
+	      </div>
+	    </form>
+	</div>
+<% include ../partials/footer %>
+
